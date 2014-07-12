@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Bostonember</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{BASE_TAG}}
+
+    <link rel="stylesheet" href="assets/vendor.css">
+    <link rel="stylesheet" href="assets/bostonember.css">
+  </head>
+  <body>
+    <script>
+      window.BostonemberENV = {{ENV}};
+      window.EmberENV = window.BostonemberENV.EmberENV;
+    </script>
+    <script src="assets/vendor.js"></script>
+    <script src="assets/bostonember.js"></script>
+    <script>
+      window.Bostonember = require('bostonember/app')['default'].create(BostonemberENV.APP);
+    </script>
+  </body>
+</html>
