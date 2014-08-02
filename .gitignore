@@ -42,8 +42,8 @@ rails/rerun.txt
 rails/pickle-email-*.html
 
 # TODO Comment out these rules if you are OK with secrets being uploaded to the repo
-rails/config/initializers/secret_token.rb
-rails/config/secrets.yml
+# rails/config/initializers/secret_token.rb
+# rails/config/secrets.yml
 
 ## Environment normalisation:
 rails/.bundle

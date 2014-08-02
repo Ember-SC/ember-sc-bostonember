@@ -1,0 +1,1 @@
+Bostonember::Application.config.secret_key_base = 'eecf5d66feebe7d95bf6fd72b29410bdfd3aabf08109b528341c5779ef752ef0c81ec699c9da34bf576f218a404a4115cad3cc410d4533cd9609a2b825f9be36'
