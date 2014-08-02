@@ -86,3 +86,19 @@ test('Should list all presentations for a speaker', function() {
     equal(find('li:contains("Of course, you know, this means war.")').length, 1);
   });
 });
+
+test('Should see edit button to edit a speaker', function() {
+    visit('/speakers/1').then(function() {
+        equal(find('a').hasClass('edit-speaker'), true);
+    });
+});
+
+test('Should be able to visit a speaker edit page', function() {
+   visit('/speakers/1').then(function() {
+       click('a.edit-speaker').then(function() {
+         var input_control = find('input.speaker-name');
+         notEqual(input_control, undefined, "input control w/ class 'speaker-name' not found");
+         ok(input_control.text().length > 0, "input control for name should not be empty");
+       });
+   });
+});
