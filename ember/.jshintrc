@@ -2,11 +2,20 @@
   "predef": {
     "document": true,
     "window": true,
-    "BostonemberENV": true
+    "BostonemberENV": true,
+    "location": true,
+    "setTimeout": true,
+    "Ember": true,
+    "Em": true,
+    "DS": true,
+    "$": true,
+    "ENV": true,
+    "module": true
   },
-  "browser" : true,
+  "node" : false,
+  "browser" : false,
   "boss" : true,
-  "curly": true,
+  "curly": false,
   "debug": false,
   "devel": true,
   "eqeqeq": true,
