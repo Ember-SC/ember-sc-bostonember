@@ -59,8 +59,7 @@ test('Should allow navigation to the speakers page from the landing page', funct
 });
 
 test('Should list all speakers and number of presentations', function () {
-    visit('/speakers');
-    andThen(function () {
+    visit('/speakers').then(function () {
         equal(find('a:contains("Bugs Bunny (2)")').length, 1);
         equal(find('a:contains("Wile E. Coyote (1)")').length, 1);
         equal(find('a:contains("Yosemite Sam (3)")').length, 1);
@@ -76,23 +75,20 @@ test('Should be able to navigate to a speaker page', function () {
 });
 
 test('Should be able to visit a speaker page', function () {
-    visit('/speakers/1');
-    andThen(function() {
+    visit('/speakers/1').then(function() {
         equal(find('h4').text(), 'Bugs Bunny');
     });
 });
 
 test('Should list all presentations for a speaker', function () {
-    visit('/speakers/1');
-    andThen(function() {
+    visit('/speakers/1').then(function() {
         equal(find('li:contains("What\'s up with Docs?")').length, 1);
         equal(find('li:contains("Of course, you know, this means war.")').length, 1);
     });
 });
 
 test('Should see edit button to edit a speaker', function () {
-    visit('/speakers/1');
-    andThen(function() {
+    visit('/speakers/1').then(function() {
         equal(find('a').hasClass('edit-speaker'), true);
     });
 });
