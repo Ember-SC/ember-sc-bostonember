@@ -94,11 +94,18 @@ test('Should see edit button to edit a speaker', function () {
 });
 
 test('Should be able to visit a speaker edit page', function () {
+    expect(1);
     visit('/speakers/1');
     click('a.edit-speaker');
     andThen(function () {
-        var input_control = find('input.speaker-name');
-        notEqual(input_control, undefined, "input control w/ class 'speaker-name' not found");
-        // equal(input_control.value, 'text', "input control for name should not be empty"); // Can't seem to get this to work
+        notEqual(find('input.speaker-name'), undefined);
+    });
+});
+
+test('Should be able to see the value in the name text field', function() {
+    expect(1);
+    visit('/speakers/1/edit');
+    andThen(function() {)
+        equal(find('.input.speaker-name').value, 'Bugs Bunny');
     });
 });
