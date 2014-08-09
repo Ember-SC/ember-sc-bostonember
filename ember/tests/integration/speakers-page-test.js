@@ -59,8 +59,7 @@ test('Should allow navigation to the speakers page from the landing page', funct
 });
 
 test('Should list all speakers and number of presentations', function () {
-    visit('/speakers');
-    andThen(function () {
+    visit('/speakers').then(function () {
         equal(find('a:contains("Bugs Bunny (2)")').length, 1);
         equal(find('a:contains("Wile E. Coyote (1)")').length, 1);
         equal(find('a:contains("Yosemite Sam (3)")').length, 1);
@@ -76,33 +75,49 @@ test('Should be able to navigate to a speaker page', function () {
 });
 
 test('Should be able to visit a speaker page', function () {
-    visit('/speakers/1');
-    andThen(function() {
+    visit('/speakers/1').then(function() {
         equal(find('h4').text(), 'Bugs Bunny');
     });
 });
 
 test('Should list all presentations for a speaker', function () {
-    visit('/speakers/1');
-    andThen(function() {
+    visit('/speakers/1').then(function() {
         equal(find('li:contains("What\'s up with Docs?")').length, 1);
         equal(find('li:contains("Of course, you know, this means war.")').length, 1);
     });
 });
 
 test('Should see edit button to edit a speaker', function () {
-    visit('/speakers/1');
-    andThen(function() {
-        equal(find('a').hasClass('edit-speaker'), true);
+    visit('/speakers/1').then(function() {
+        ok(find('a').hasClass('edit-speaker'));
     });
 });
 
 test('Should be able to visit a speaker edit page', function () {
+    expect(1);
     visit('/speakers/1');
     click('a.edit-speaker');
-    andThen(function () {
-        var input_control = find('input.speaker-name');
-        notEqual(input_control, undefined, "input control w/ class 'speaker-name' not found");
-        // equal(input_control.value, 'text', "input control for name should not be empty"); // Can't seem to get this to work
+    andThen(function() {
+        notEqual(find('input.speaker-name'), undefined);
+    });
+});
+
+test("Should see a button or link to commit the edit change", function() {
+    expect(1);
+    visit('/speakers/1/edit');
+    andThen(function() {
+       ok(find('button').hasClass('commit-speaker-change'));
+    });
+});
+
+test("Change the name of 'Bugs Bunny' to 'Silly Wabbit'", function() {
+    expect(1);
+    visit('/speakers/1/edit');
+    andThen(function() {
+        fillIn('input.speaker-name', 'Silly Wabbit');
+        click(findWithAssert('button').hasClass('commit-speaker-change'));
+        andThen(function() {
+            equal(findWithAssert('input.speaker-name').val(), 'Silly Wabbit');
+        });
     });
 });
