@@ -1,5 +1,14 @@
+<table>
+<thead>
+<th>Name</th><th>Presentation Count</th>
+</thead>
+<tbody>
 {{#each}}
+    <tr>
+  <td>
   {{~#link-to 'speakers.show' this}}
-    {{name}} ({{presentations.length}})
-  {{~/link-to}}
+    {{name}}{{~/link-to}}</td><td>{{presentations.length}}</td>
+    </tr>
 {{/each}}
+</tbody>
+</table>
