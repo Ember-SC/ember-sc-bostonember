@@ -9,8 +9,9 @@ class Api::SpeakersController < ApplicationController
 
   def update
     speaker = Speaker.find(params[:id])
-    speaker.name = params[:name]
+    speaker.name = params[:speaker]['name']
     speaker.save!
+    render json: speaker
   end
 
 end
