@@ -60,9 +60,9 @@ test('Should allow navigation to the speakers page from the landing page', funct
 
 test('Should list all speakers and number of presentations', function () {
     visit('/speakers').then(function () {
-        equal(find('a:contains("Bugs Bunny (2)")').length, 1);
-        equal(find('a:contains("Wile E. Coyote (1)")').length, 1);
-        equal(find('a:contains("Yosemite Sam (3)")').length, 1);
+        ok(/>2</.test($('tr:contains(Bugs Bunny)').html()));
+        ok(/>1</.test($('tr:contains(Wile E. Coyote)').html()));
+        ok(/>3</.test($('tr:contains(Yosemite Sam)').html()));
     });
 });
 
