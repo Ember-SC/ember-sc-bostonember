@@ -7,6 +7,7 @@ Router.map(function() {
   this.resource('speakers', function() {
     this.route('show', {path: ':speaker_id'});
     this.route('edit', {path: ':speaker_id/edit'});
+    this.route('create', {path: 'create'});
   });
 });
 

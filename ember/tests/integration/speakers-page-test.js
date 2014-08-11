@@ -54,7 +54,7 @@ test('Should allow navigation to the speakers page from the landing page', funct
     visit('/');
     click('a:contains("Speakers")');
     andThen(function () {
-        equal(find('h3').text(), 'Speakers');
+        ok(find('h3:contains(Speakers)'));
     });
 });
 
@@ -120,4 +120,21 @@ test("Change the name of 'Bugs Bunny' to 'Silly Wabbit'", function() {
             equal(findWithAssert('input.speaker-name').val(), 'Silly Wabbit');
         });
     });
+});
+
+test("Can see a link to create a new speaker", function() {
+    visit('/speakers');
+    andThen(function() {
+       ok(find('a').hasClass('create-speaker'));
+    });
+});
+
+test("Can navigate to a page to create a speaker", function() {
+   expect(1);
+   visit('/speakers');
+   click(find('a.create-speaker'));
+   andThen(function() {
+       var my_head = findWithAssert('button.commit-speaker-creation');
+       ok(my_head !== undefined);
+   });
 });
