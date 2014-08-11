@@ -138,3 +138,20 @@ test("Can navigate to a page to create a speaker", function() {
        ok(my_head !== undefined);
    });
 });
+
+test("Can see a link to delete an existing speaker", function() {
+    visit('/speakers/1');
+    andThen(function() {
+        ok(find('a').hasClass('delete-speaker'));
+    });
+});
+
+test("Can delete an existing speaker", function() {
+    visit('/speakers/1');
+    click(find('a.delete-speaker'));
+    andThen(function() {
+        ok(/>0</.test($('tr:contains(Bugs Bunny)').html()));
+        ok(/>1</.test($('tr:contains(Wile E. Coyote)').html()));
+        ok(/>3</.test($('tr:contains(Yosemite Sam)').html()));
+    });
+});
