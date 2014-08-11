@@ -14,4 +14,11 @@ class Api::SpeakersController < ApplicationController
     render json: speaker
   end
 
+  def create
+    speaker = Speaker.new
+    speaker.name = params[:speaker]['name']
+    speaker.save!
+    render json:speaker
+  end
+
 end
