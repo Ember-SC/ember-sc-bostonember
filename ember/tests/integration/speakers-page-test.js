@@ -34,12 +34,27 @@ module('Integration - Speaker Page', {
                 });
 
                 var speakerPresentations = presentations.filter(function (presentation) {
-                    if (presentation.speaker_id === speaker.id) {
-                        return true;
-                    }
+                    return (presentation.speaker_id === speaker.id);
                 });
 
                 return [200, {"Content-Type": "application/json"}, JSON.stringify({speaker: speaker, presentations: speakerPresentations})];
+            });
+
+            this.delete('/api/speakers/:id', function(request) {
+                var deletedSpeakerId = parseInt(request.params.id, 10);
+                var deletedSpeaker = speakers.find(function (speaker) {
+                    if (speaker.id === parseInt(request.params.id, 10)) {
+                        return speaker;
+                    }
+                });
+
+                var lessSpeakerPresentations = presentations.filter(function(presentation) {
+                    return (presentation.speaker_id === deletedSpeakerId);
+                });
+
+                var theJson = JSON.stringify({speaker: null, presentations: []});
+                console.log("***** " + theJson);
+                return [200, {"Content-Type": 'application/json'}, theJson];
             });
         });
 
@@ -137,4 +152,27 @@ test("Can navigate to a page to create a speaker", function() {
        var my_head = findWithAssert('button.commit-speaker-creation');
        ok(my_head !== undefined);
    });
+});
+
+test("Can see a button to delete an existing speaker", function() {
+    visit('/speakers/1');
+    andThen(function() {
+        ok(find('button').hasClass('delete-speaker'));
+    });
+});
+
+test("Can delete an existing speaker", function() {
+    visit('/speakers/1');
+    click(find('button.delete-speaker'));
+    andThen(function() {
+        equal(currentRouteName(), 'speakers.index');
+    });
+});
+
+test("Check to see what the HTTP request/response is for deleting", function() {
+   ok(false);
+});
+
+test("Track next available ID for speaker and presentation in Presenter simulation", function() {
+    ok(false);
 });
