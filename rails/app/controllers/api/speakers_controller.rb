@@ -18,7 +18,13 @@ class Api::SpeakersController < ApplicationController
     speaker = Speaker.new
     speaker.name = params[:speaker]['name']
     speaker.save!
-    render json:speaker
+    render json: speaker
+  end
+
+  def destroy
+    speaker = Speaker.find(params[:id])
+    speaker.destroy
+    render json: '{}'
   end
 
 end
