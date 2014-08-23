@@ -1,16 +1,13 @@
 import startApp from 'bostonember/tests/helpers/start-app';
 import Ember from 'ember';
+import initialSpeakers from 'bostonember/tests/helpers/fixture/initial_speakers';
 
 var App, server;
 
 module('Integration - Speaker Page', {
     setup: function () {
         App = startApp();
-        var speakers = [
-            { id: 1, name: 'Bugs Bunny', presentation_ids: [1, 2] },
-            { id: 2, name: 'Wile E. Coyote', presentation_ids: [3] },
-            { id: 3, name: 'Yosemite Sam', presentation_ids: [4, 5, 6] }
-        ];
+        var speakers = initialSpeakers();
 
         var presentations = [
             { id: 1, title: "What's up with Docs?", speaker_id: 1 },
