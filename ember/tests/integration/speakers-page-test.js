@@ -165,11 +165,3 @@ test("Can delete an existing speaker", function() {
         equal(currentRouteName(), 'speakers.index');
     });
 });
-
-test("Check to see what the HTTP request/response is for deleting", function() {
-   ok(false);
-});
-
-test("Track next available ID for speaker and presentation in Presenter simulation", function() {
-    ok(false);
-});
