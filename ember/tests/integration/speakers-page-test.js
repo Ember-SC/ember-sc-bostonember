@@ -51,10 +51,7 @@ module('Integration - Speaker Page', {
                 var lessSpeakerPresentations = presentations.filter(function(presentation) {
                     return (presentation.speaker_id === deletedSpeakerId);
                 });
-
-                var theJson = JSON.stringify({speaker: null, presentations: []});
-                console.log("***** " + theJson);
-                return [200, {"Content-Type": 'application/json'}, theJson];
+                return [200, {"Content-Type": 'application/json'}, '{}'];
             });
         });
 
