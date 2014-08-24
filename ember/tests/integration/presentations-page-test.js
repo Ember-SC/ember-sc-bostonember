@@ -3,6 +3,7 @@ import Ember from 'ember';
 import initialSpeakers from 'bostonember/tests/helpers/fixture/initial_speakers';
 import initialPresentations from 'bostonember/tests/helpers/fixture/initial_presentations';
 import fixtureServer from 'bostonember/tests/helpers/fixture/fixture-server';
+import testOnSameRow from 'bostonember/tests/helpers/testOnSameRow';
 
 var App, server;
 
@@ -29,10 +30,12 @@ test('Should allow navigation to a list of presentations page from the landing p
 
 test('Should list all presentations and the speaker for each presentation', function () {
     visit('/presentations').then(function () {
-        var detail = 'What\'s up with Docs?';
-        var matching_row = $('tr:contains(' + detail + ')').html();
-        var contains = matching_row.indexOf('Bugs Bunny') >= 0;
-        ok(contains);
+        testOnSameRow('What\'s up with Docs?', 'Bugs Bunny');
+        testOnSameRow('Of course, you know, this means war.', 'Bugs Bunny');
+        testOnSameRow('Getting the most from the Acme catalog.', 'Wile E. Coyote');
+        testOnSameRow('Shaaaad up!', 'Yosemite Sam');
+        testOnSameRow('Ah hates rabbits.', 'Yosemite Sam');
+        testOnSameRow('The Great horni-todes', 'Yosemite Sam');
     });
 });
 
