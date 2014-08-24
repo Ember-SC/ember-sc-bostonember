@@ -10,7 +10,7 @@ Router.map(function () {
         this.route('create', {path: 'create'});
     });
     this.resource('presentations', function () {
-
+        this.route('show', {path: ':presentation_id'});
     });
 });
 

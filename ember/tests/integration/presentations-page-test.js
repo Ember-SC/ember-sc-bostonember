@@ -26,3 +26,10 @@ test('Should allow navigation to a list of presentations page from the landing p
         equal(find('h3').text(), 'Presentations');
     });
 });
+
+test('Should list all presentations and the speaker for each presentation', function () {
+    visit('/presentations').then(function () {
+        ok(/Bugs Bunny/.test($('tr:contains(What\'s up with Docs?)').html()));
+    });
+});
+
