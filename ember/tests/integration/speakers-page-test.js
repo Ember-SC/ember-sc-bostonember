@@ -1,60 +1,17 @@
 import startApp from 'bostonember/tests/helpers/start-app';
 import Ember from 'ember';
+import initialSpeakers from 'bostonember/tests/helpers/fixture/initial_speakers';
+import initialPresentations from 'bostonember/tests/helpers/fixture/initial_presentations';
+import fixtureServer from 'bostonember/tests/helpers/fixture/fixture-server';
 
 var App, server;
 
 module('Integration - Speaker Page', {
     setup: function () {
         App = startApp();
-        var speakers = [
-            { id: 1, name: 'Bugs Bunny', presentation_ids: [1, 2] },
-            { id: 2, name: 'Wile E. Coyote', presentation_ids: [3] },
-            { id: 3, name: 'Yosemite Sam', presentation_ids: [4, 5, 6] }
-        ];
-
-        var presentations = [
-            { id: 1, title: "What's up with Docs?", speaker_id: 1 },
-            { id: 2, title: "Of course, you know, this means war.", speaker_id: 1 },
-            { id: 3, title: "Getting the most from the Acme categlog.", speaker_id: 2 },
-            { id: 4, title: "Shaaaad up!", speaker_id: 3 },
-            { id: 5, title: "Ah hates rabbits.", speaker_id: 3 },
-            { id: 6, title: "The Great horni-todes", speaker_id: 3 }
-        ];
-
-        server = new Pretender(function () {
-            this.get('/api/speakers', function (request) {
-                return [200, {"Content-Type": "application/json"}, JSON.stringify({speakers: speakers, presentations: presentations})];
-            });
-
-            this.get('/api/speakers/:id', function (request) {
-                var speaker = speakers.find(function (speaker) {
-                    if (speaker.id === parseInt(request.params.id, 10)) {
-                        return speaker;
-                    }
-                });
-
-                var speakerPresentations = presentations.filter(function (presentation) {
-                    return (presentation.speaker_id === speaker.id);
-                });
-
-                return [200, {"Content-Type": "application/json"}, JSON.stringify({speaker: speaker, presentations: speakerPresentations})];
-            });
-
-            this.delete('/api/speakers/:id', function(request) {
-                var deletedSpeakerId = parseInt(request.params.id, 10);
-                var deletedSpeaker = speakers.find(function (speaker) {
-                    if (speaker.id === parseInt(request.params.id, 10)) {
-                        return speaker;
-                    }
-                });
-
-                var lessSpeakerPresentations = presentations.filter(function(presentation) {
-                    return (presentation.speaker_id === deletedSpeakerId);
-                });
-                return [200, {"Content-Type": 'application/json'}, '{}'];
-            });
-        });
-
+        var speakers = initialSpeakers();
+        var presentations = initialPresentations();
+        server = fixtureServer(speakers, presentations);
     },
     teardown: function () {
         Ember.run(App, 'destroy');
