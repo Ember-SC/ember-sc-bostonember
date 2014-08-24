@@ -19,7 +19,10 @@ module('Integration - Presentation Page', {
     }
 });
 
-test('Should allow navigation to the presentations page from a speaker page', function () {
+test('Should allow navigation to a list of presentations page from the landing page', function () {
     visit('/');
-    ok(true);
+    click("a:contains('Presentations')");
+    andThen(function () {
+        equal(find('h3').text(), 'Presentations');
+    });
 });

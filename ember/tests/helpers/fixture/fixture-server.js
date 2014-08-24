@@ -31,5 +31,9 @@ export default function fixtureServer(speakers, presentations) {
             });
             return [200, {"Content-Type": 'application/json'}, '{}'];
         });
+
+        this.get('/api/presentations', function (request) {
+            return [200, {"Content-Type": "application/json"}, JSON.stringify({speakers: speakers, presentations: presentations})];
+        });
     });
 }
