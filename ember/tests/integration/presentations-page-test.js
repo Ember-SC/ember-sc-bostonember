@@ -29,7 +29,10 @@ test('Should allow navigation to a list of presentations page from the landing p
 
 test('Should list all presentations and the speaker for each presentation', function () {
     visit('/presentations').then(function () {
-        ok(/Bugs Bunny/.test($('tr:contains(What\'s up with Docs?)').html()));
+        var detail = 'What\'s up with Docs?';
+        var matching_row = $('tr:contains(' + detail + ')').html();
+        var contains = matching_row.indexOf('Bugs Bunny') >= 0;
+        ok(contains);
     });
 });
 
