@@ -43,7 +43,7 @@ test('Should allow navigation to an edit page for the presentation from the pres
     visit('/presentations');
     click("a:contains('Shaaaad up!')");
     andThen(function() {
-        equal(currentRouteName(), 'presentations.edit');
+        equal(currentURL(), '/presentations/4/edit');
     });
 });
 
