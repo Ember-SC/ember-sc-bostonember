@@ -40,10 +40,12 @@ test('Should list all presentations and the speaker for each presentation', func
 });
 
 test('Should allow navigation to an edit page for the presentation from the presenation list', function() {
+    expect(2);
     visit('/presentations');
     click("a:contains('Shaaaad up!')");
     andThen(function() {
         equal(currentURL(), '/presentations/4/edit');
+        equal(find('input.presentation-title').val(), 'Shaaaad up!');
     });
 });
 
