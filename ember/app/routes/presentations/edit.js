@@ -2,9 +2,10 @@ export default Ember.Route.extend({
 
     actions: {
         submit: function() {
-            var myModel = this.controller.get('model');
-            myModel.save();
-            this.transitionTo('speakers.show', myModel.speaker);
+            var myPresentation = this.controller.get('model');
+            var mySpeaker = myPresentation.get('speaker');
+            myPresentation.save();
+            this.transitionTo('speakers.show', mySpeaker);
         }
     }
 });
