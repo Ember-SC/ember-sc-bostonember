@@ -7,9 +7,14 @@
 <tbody>
 {{#each}}
     <tr>
-  <td>
-  {{~#link-to 'presentations.show' this}}
-    {{title}}{{~/link-to}}</td><td>{{speaker.get('name')}}</td>
+      <td>
+      {{~#link-to 'presentations.show' this}}
+        {{title}}{{~/link-to}}
+      </td>
+      <td>
+        {{#link-to 'speakers.show' speaker}}
+        {{speaker.name}}{{/link-to}}
+      </td>
     </tr>
 {{/each}}
 </tbody>
