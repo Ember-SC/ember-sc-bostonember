@@ -11,6 +11,7 @@ Router.map(function () {
     });
     this.resource('presentations', function () {
         this.route('show', {path: ':presentation_id'});
+        this.route('edit', {path: ':presentation_id/edit'});
     });
 });
 

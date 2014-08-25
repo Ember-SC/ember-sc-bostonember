@@ -39,3 +39,11 @@ test('Should list all presentations and the speaker for each presentation', func
     });
 });
 
+test('Should allow navigation to an edit page for the presentation from the presenation list', function() {
+    visit('/presentations');
+    click("a:contains('Shaaaad up!')");
+    andThen(function() {
+        equal(currentRouteName(), 'presentations.edit');
+    });
+});
+
