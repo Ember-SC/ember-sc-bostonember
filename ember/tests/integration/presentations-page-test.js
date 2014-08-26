@@ -49,3 +49,16 @@ test('Should allow navigation to an edit page for the presentation from the pres
     });
 });
 
+test('Should go to speaker\'s show page after submitting presentation edit', function() {
+    expect(3);
+    visit('/presentations/4/edit');
+    var changed_text = 'You 2-timing!';
+    fillIn('input.presentation-title', changed_text);
+    click('button.commit-presentation-change');
+    andThen(function() {
+        equal(currentURL(), '/speakers/3');
+        ok("h4:contains('Yosemite Sam')");
+        ok("li:contains('" + changed_text + "')");
+    });
+});
+
