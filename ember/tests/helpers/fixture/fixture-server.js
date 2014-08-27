@@ -31,5 +31,25 @@ export default function fixtureServer(speakers, presentations) {
             });
             return [200, {"Content-Type": 'application/json'}, '{}'];
         });
+
+        this.get('/api/presentations', function (request) {
+            return [200, {"Content-Type": "application/json"}, JSON.stringify({speakers: speakers, presentations: presentations})];
+        });
+
+        this.get('/api/presentations/:id', function (request) {
+            var presentation = presentations.find(function (presentation) {
+                if (presentation.id === parseInt(request.params.id, 10)) {
+                    return presentation;
+                }
+            });
+
+            var presentationSpeaker = speakers.find(function (speaker) {
+                if (speaker.presentation_ids.contains(presentation.id)) {
+                    return speaker;
+                }
+            });
+
+            return [200, {"Content-Type": "application/json"}, JSON.stringify({speaker: presentationSpeaker, presentation: presentation})];
+        });
     });
 }

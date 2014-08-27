@@ -13,7 +13,7 @@ sam  = Speaker.create(name: 'Yosemite Sam')
 bugs.presentations.create(title: "What's up with Docs?")
 bugs.presentations.create(title: "Of course, you know, this means war.")
 
-wile.presentations.create(title: "Getting the most from the Acme categlog.")
+wile.presentations.create(title: "Getting the most from the Acme catalog.")
 
 sam.presentations.create(title: "Shaaaad up!")
 sam.presentations.create(title: "Ah hates rabbits.")

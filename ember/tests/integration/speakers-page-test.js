@@ -3,6 +3,7 @@ import Ember from 'ember';
 import initialSpeakers from 'bostonember/tests/helpers/fixture/initial_speakers';
 import initialPresentations from 'bostonember/tests/helpers/fixture/initial_presentations';
 import fixtureServer from 'bostonember/tests/helpers/fixture/fixture-server';
+import testOnSameRow from 'bostonember/tests/helpers/testOnSameRow';
 
 var App, server;
 
@@ -29,9 +30,9 @@ test('Should allow navigation to the speakers page from the landing page', funct
 
 test('Should list all speakers and number of presentations', function () {
     visit('/speakers').then(function () {
-        ok(/>2</.test($('tr:contains(Bugs Bunny)').html()));
-        ok(/>1</.test($('tr:contains(Wile E. Coyote)').html()));
-        ok(/>3</.test($('tr:contains(Yosemite Sam)').html()));
+        testOnSameRow('Bugs Bunny', '2');
+        testOnSameRow('Wile E. Coyote', '1');
+        testOnSameRow('Yosemite Sam', '3');
     });
 });
 

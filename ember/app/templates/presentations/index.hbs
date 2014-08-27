@@ -1,0 +1,21 @@
+<h3>Presentations</h3>
+
+<table>
+<thead>
+<th>Title</th><th>Speaker</th>
+</thead>
+<tbody>
+{{#each}}
+    <tr>
+      <td>
+      {{#link-to 'presentations.edit' this}}
+        {{title}}{{/link-to}}
+      </td>
+      <td>
+        {{#link-to 'speakers.show' speaker}}
+        {{speaker.name}}{{/link-to}}
+      </td>
+    </tr>
+{{/each}}
+</tbody>
+</table>
