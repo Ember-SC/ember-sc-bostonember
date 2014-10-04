@@ -1,8 +1,6 @@
-/* global require */
-
-var Application = require('bostonember/app')['default'];
-var Router = require('bostonember/router')['default'];
 import Ember from 'ember';
+import Application from 'bostonember/app';
+import Router from 'bostonember/router';
 
 export default function startApp(attrs) {
   var App;
