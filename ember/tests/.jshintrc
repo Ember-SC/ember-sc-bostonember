@@ -5,6 +5,7 @@
     "location",
     "setTimeout",
     "$",
+    "-Promise",
     "QUnit",
     "define",
     "console",
@@ -43,8 +44,7 @@
     "andThen",
     "currentURL",
     "currentPath",
-    "currentRouteName",
-    "Pretender"
+    "currentRouteName"
   ],
   "node": false,
   "browser": false,
