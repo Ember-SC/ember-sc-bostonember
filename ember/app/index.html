@@ -13,14 +13,12 @@
     <link rel="stylesheet" href="assets/bostonember.css">
   </head>
   <body>
-    <script>
-      window.BostonemberENV = {{ENV}};
-      window.EmberENV = window.BostonemberENV.EmberENV;
-    </script>
     <script src="assets/vendor.js"></script>
     <script src="assets/bostonember.js"></script>
     <script>
-      window.Bostonember = require('bostonember/app')['default'].create(BostonemberENV.APP);
+  window.BostonemberENV = require('bostonember/config/environment')['default'];
+  window.EmberENV = window.BostonemberENV.EmberENV;
+  window.Bostonember = require('bostonember/app')['default'].create(BostonemberENV.APP);
     </script>
   </body>
 </html>
