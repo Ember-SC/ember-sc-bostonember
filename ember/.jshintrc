@@ -3,15 +3,7 @@
     "document": true,
     "window": true,
     "-Promise": true,
-    "BostonemberENV": true,
-    "location": true,
-    "setTimeout": true,
-    "Ember": true,
-    "Em": true,
-    "DS": true,
-    "$": true,
-    "ENV": true,
-    "module": true
+    "BostonemberENV": true
   },
   "browser" : true,
   "boss" : true,
