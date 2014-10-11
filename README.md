@@ -36,7 +36,7 @@ You should have installed the following:
 1.  In your work directory, retrieve the Ember and Rails projects as one git cloning:
 
     ```bash
-    git clone git@github.com:Ember-SC/ember-sc-bostonember.git
+    git clone https://github.com/Ember-SC/ember-sc-bostonember.git
     cd ember-sc-bostonember
     ```
     
@@ -115,3 +115,8 @@ Test both together:
     * Yosemite same w/ 3 presenations
 
 If you get further than we have, we would appreciate a PR from you, thanks!
+
+#### Troubleshooting
+
+This is currently running using ember-sc version 0.0.44.
+We try to keep it upgraded periodically to the latest released ember-sc version.
