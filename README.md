@@ -36,7 +36,7 @@ You should have installed the following:
 1.  In your work directory, retrieve the Ember and Rails projects as one git cloning:
 
     ```bash
-    git clone git@github.com:Ember-SC/ember-sc-bostonember.git
+    git clone https://github.com/Ember-SC/ember-sc-bostonember.git
     cd ember-sc-bostonember
     ```
     

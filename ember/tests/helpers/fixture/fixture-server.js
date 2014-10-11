@@ -1,3 +1,5 @@
+import Pretender from 'pretender';
+
 export default function fixtureServer(speakers, presentations) {
     return new Pretender(function () {
         this.get('/api/speakers', function (request) {
