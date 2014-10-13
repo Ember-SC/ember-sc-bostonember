@@ -5,6 +5,7 @@
     "-Promise": true,
     "location": true,
     "setTimeout": true,
+    "Pretender": true,
     "Ember": true,
     "Em": true,
     "DS": true,
