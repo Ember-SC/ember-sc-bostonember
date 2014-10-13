@@ -1,9 +1,9 @@
-import startApp from 'bostonember/tests/helpers/start-app';
+import startApp from 'embersc/tests/helpers/start-app';
 import Ember from 'ember';
-import initialSpeakers from 'bostonember/tests/helpers/fixture/initial_speakers';
-import initialPresentations from 'bostonember/tests/helpers/fixture/initial_presentations';
-import fixtureServer from 'bostonember/tests/helpers/fixture/fixture-server';
-import testOnSameRow from 'bostonember/tests/helpers/testOnSameRow';
+import initialSpeakers from 'embersc/tests/helpers/fixture/initial_speakers';
+import initialPresentations from 'embersc/tests/helpers/fixture/initial_presentations';
+import fixtureServer from 'embersc/tests/helpers/fixture/fixture-server';
+import testOnSameRow from 'embersc/tests/helpers/testOnSameRow';
 
 var App, server;
 
