@@ -17,8 +17,8 @@ var app = new EmberApp();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
-//app.import('bower_components/route-recognizer/dist/route-recognizer.js');
-//app.import('bower_components/FakeXMLHttpRequest/fake_xml_http_request.js');
+app.import('bower_components/route-recognizer/dist/route-recognizer.js');
+app.import('bower_components/FakeXMLHttpRequest/fake_xml_http_request.js');
 //app.import('bower_components/pretender/pretender.js');
 
 module.exports = app.toTree();
