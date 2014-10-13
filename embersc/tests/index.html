@@ -3,14 +3,14 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Bostonember Tests</title>
+    <title>Embersc Tests</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {{BASE_TAG}}
 
     <link rel="stylesheet" href="assets/vendor.css">
-    <link rel="stylesheet" href="assets/bostonember.css">
+    <link rel="stylesheet" href="assets/embersc.css">
     <link rel="stylesheet" href="assets/test-support.css">
     <style>
       #ember-testing-container {
@@ -34,15 +34,14 @@
     <div id="qunit-fixture"></div>
 
     <script>
-      window.BostonemberENV = {{ENV}};
-      window.EmberENV = window.BostonemberENV.EmberENV;
+      window.EmberENV = {{EMBER_ENV}};
     </script>
     <script src="assets/vendor.js"></script>
     <script src="assets/test-support.js"></script>
-    <script src="assets/bostonember.js"></script>
+    <script src="assets/embersc.js"></script>
     <script src="testem.js"></script>
     <script>
-      require('bostonember/tests/test-helper');
+      require('embersc/tests/test-helper');
     </script>
     <script src="assets/test-loader.js"></script>
   </body>
