@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import startApp from 'bostonember/tests/helpers/start-app';
+import startApp from 'embersc/tests/helpers/start-app';
 
 var App;
 
@@ -12,9 +12,9 @@ module('Integration - Landing Page', {
   }
 });
 
-test('Should welcome me to Boston Ember', function() {
+test('Should welcome me to Ember Southern California', function() {
   visit('/').then(function() {
-    equal(find('h2#title').text(), 'Welcome to Boston Ember');
+    equal(find('h2#title').text(), 'Welcome to Ember Southern California');
   });
 });
 

@@ -1,4 +1,4 @@
-import startApp from 'bostonember/tests/helpers/start-app';
+import startApp from 'embersc/tests/helpers/start-app';
 import Ember from 'ember';
 
 var App;

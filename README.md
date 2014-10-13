@@ -118,5 +118,5 @@ If you get further than we have, we would appreciate a PR from you, thanks!
 
 #### Troubleshooting
 
-This is currently running using ember-sc version 0.0.44.
+This is currently running using ember-sc version 0.0.46.
 We try to keep it upgraded periodically to the latest released ember-sc version.
