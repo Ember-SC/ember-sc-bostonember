@@ -2,7 +2,15 @@
   "predef": {
     "document": true,
     "window": true,
-    "-Promise": true
+    "-Promise": true,
+    "location": true,
+    "setTimeout": true,
+    "Ember": true,
+    "Em": true,
+    "DS": true,
+    "$": true,
+    "ENV": true,
+    "module": true
   },
   "browser" : true,
   "boss" : true,
