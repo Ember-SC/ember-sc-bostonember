@@ -42,10 +42,10 @@ You should have installed the following:
     
 Ember:
 
-1.  Go into the `ember` directory to set up the client system:
+1.  Go into the `embersc` directory to set up the client system:
 
     ```bash
-    cd ember
+    cd embersc
     ```
 
 1.  Install everything:
@@ -54,6 +54,14 @@ Ember:
     npm install
     bower install
     ```
+
+1.  Run regression tests
+
+    ```bash
+    ember server
+    ```
+    
+    Then browse http://localhost:4200/tests and watch them run.
     
 Rails:
 
@@ -118,5 +126,5 @@ If you get further than we have, we would appreciate a PR from you, thanks!
 
 #### Troubleshooting
 
-This is currently running using ember-sc version 0.1.1.
-We try to keep it upgraded periodically to the latest released ember-sc version.
+This is currently running using ember-sc version `0.1.1`.
+We try to keep it upgraded periodically to the latest released `ember-cli` version.
