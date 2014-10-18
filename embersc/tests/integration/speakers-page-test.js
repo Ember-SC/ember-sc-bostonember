@@ -101,11 +101,12 @@ test("Can see a link to create a new speaker", function() {
 
 test("Can navigate to a page to create a speaker", function() {
    expect(1);
-   visit('/speakers');
-   click(find('a.create-speaker'));
-   andThen(function() {
-       var my_head = findWithAssert('button.commit-speaker-creation');
-       ok(my_head !== undefined);
+   visit('/speakers').then(function() {
+     click(find('a.create-speaker'));
+     andThen(function() {
+         var my_head = findWithAssert('button.commit-speaker-creation');
+         ok(my_head !== undefined);
+     });
    });
 });
 
@@ -117,9 +118,12 @@ test("Can see a button to delete an existing speaker", function() {
 });
 
 test("Can delete an existing speaker", function() {
-    visit('/speakers/1');
-    click(find('button.delete-speaker'));
-    andThen(function() {
-        equal(currentRouteName(), 'speakers.index');
+    expect(1);
+    visit('/speakers/1').then(function() {
+      click(find('button.delete-speaker'));
+      andThen(function() {
+          equal(currentRouteName(), 'speakers.index');
+          // TODO: verify that the speaker and its presenations are deleted
+      });
     });
 });

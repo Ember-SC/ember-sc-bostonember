@@ -1,18 +1,18 @@
 {
-  "predef": {
-    "document": true,
-    "window": true,
-    "-Promise": true,
-    "location": true,
-    "setTimeout": true,
-    "Pretender": true,
-    "Ember": true,
-    "Em": true,
-    "DS": true,
-    "$": true,
-    "ENV": true,
-    "module": true
-  },
+  "predef": [
+    "document",
+    "window",
+    "-Promise",
+    "location",
+    "setTimeout",
+    "Pretender",
+    "Ember",
+    "Em",
+    "DS",
+    "$",
+    "ENV",
+    "module"
+  ],
   "browser" : true,
   "boss" : true,
   "curly": true,
