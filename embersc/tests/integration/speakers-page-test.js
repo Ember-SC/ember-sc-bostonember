@@ -118,9 +118,12 @@ test("Can see a button to delete an existing speaker", function() {
 });
 
 test("Can delete an existing speaker", function() {
-    visit('/speakers/1');
-    click(find('button.delete-speaker'));
-    andThen(function() {
-        equal(currentRouteName(), 'speakers.index');
+    expect(1);
+    visit('/speakers/1').then(function() {
+      click(find('button.delete-speaker'));
+      andThen(function() {
+          equal(currentRouteName(), 'speakers.index');
+          // TODO: verify that the speaker and its presenations are deleted
+      });
     });
 });
