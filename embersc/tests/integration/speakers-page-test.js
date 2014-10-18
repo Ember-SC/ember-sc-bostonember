@@ -101,11 +101,12 @@ test("Can see a link to create a new speaker", function() {
 
 test("Can navigate to a page to create a speaker", function() {
    expect(1);
-   visit('/speakers');
-   click(find('a.create-speaker'));
-   andThen(function() {
-       var my_head = findWithAssert('button.commit-speaker-creation');
-       ok(my_head !== undefined);
+   visit('/speakers').then(function() {
+     click(find('a.create-speaker'));
+     andThen(function() {
+         var my_head = findWithAssert('button.commit-speaker-creation');
+         ok(my_head !== undefined);
+     });
    });
 });
 
