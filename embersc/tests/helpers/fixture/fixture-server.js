@@ -21,17 +21,21 @@ export default function fixtureServer(speakers, presentations) {
         });
 
         this.delete('/api/speakers/:id', function(request) {
-            var deletedSpeakerId = parseInt(request.params.id, 10);
-            var deletedSpeaker = speakers.find(function (speaker) {
-                if (speaker.id === parseInt(request.params.id, 10)) {
-                    return speaker;
-                }
-            });
 
-            var lessSpeakerPresentations = presentations.filter(function(presentation) {
-                return (presentation.speaker_id === deletedSpeakerId);
-            });
-            return [200, {"Content-Type": 'application/json'}, '{}'];
+          var deletedSpeakerId = parseInt(request.params.id, 10);
+
+          var deletedSpeaker = speakers.find(function (speaker) {
+              if (speaker.id === parseInt(request.params.id, 10)) {
+                  return speaker;
+              }
+          });
+
+          //var lessSpeakerPresentations = presentations.filter(function(presentation) {
+          //    return (presentation.speaker_id === deletedSpeakerId);
+          //});
+          var deletedSpeakerOffset = speakers.indexOf(deletedSpeaker);
+          speakers.splice(deletedSpeakerOffset, 1);
+          return [200, {"Content-Type": 'application/json'}, '{}'];
         });
 
         this.get('/api/presentations', function (request) {
