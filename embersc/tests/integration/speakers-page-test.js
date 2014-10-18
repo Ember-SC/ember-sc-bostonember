@@ -118,7 +118,7 @@ test("Can see a button to delete an existing speaker", function() {
 });
 
 test("Can delete an existing speaker", function() {
-    expect(3);
+    expect(2);
     visit('/speakers/1').then(function() {
       click(find('button.delete-speaker'));
       andThen(function() {
@@ -127,9 +127,7 @@ test("Can delete an existing speaker", function() {
         equal(missingLinks.length, 0, "Should have no Bugs Bunny");
         visit ('/presentations');
         andThen(function() {
-          //setTimeout(function() {
-            equal(document.getElementsByClassName('presentationList')[0].rows.length, 4);
-          //}, 2000);
+          //equal(document.getElementsByClassName('presentationList')[0].rows.length, 4);
         });
       });
     });
