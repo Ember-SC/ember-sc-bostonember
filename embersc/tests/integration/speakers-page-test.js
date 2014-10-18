@@ -118,12 +118,18 @@ test("Can see a button to delete an existing speaker", function() {
 });
 
 test("Can delete an existing speaker", function() {
-    expect(1);
+    expect(2);
     visit('/speakers/1').then(function() {
       click(find('button.delete-speaker'));
       andThen(function() {
-          equal(currentRouteName(), 'speakers.index');
-          // TODO: verify that the speaker and its presenations are deleted
+        equal(currentRouteName(), 'speakers.index', "Should be on speakers.index page");
+        var missingLinks = find('a:contains("Bugs Bunny")');
+        equal(missingLinks.length, 0, "Should have no Bugs Bunny");
+        //visit ('/presentations');
+        //ok(true, "Just called visit /presentations");
+        //andThen(function() {
+        //  equal(document.getElementById('tBodyPresentations').rows.length, 4);
+        //});
       });
     });
 });
