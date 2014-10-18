@@ -5,6 +5,7 @@ export default Ember.Route.extend({
           var that = this;
             this.controller.get('model').destroyRecord().then(function() {
               that.transitionTo('speakers.index');
-            });        }
+            });
+        }
     }
 });
