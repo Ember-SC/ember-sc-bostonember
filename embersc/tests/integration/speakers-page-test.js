@@ -125,11 +125,10 @@ test("Can delete an existing speaker", function() {
         equal(currentRouteName(), 'speakers.index', "Should be on speakers.index page");
         var missingLinks = find('a:contains("Bugs Bunny")');
         equal(missingLinks.length, 0, "Should have no Bugs Bunny");
-        //visit ('/presentations');
-        //ok(true, "Just called visit /presentations");
-        //andThen(function() {
-        //  equal(document.getElementById('tBodyPresentations').rows.length, 4);
-        //});
+        visit ('/presentations');
+        andThen(function() {
+          //equal(document.getElementsByClassName('presentationList')[0].rows.length, 4);
+        });
       });
     });
 });
