@@ -42,10 +42,10 @@ You should have installed the following:
     
 Ember:
 
-1.  Go into the `ember` directory to set up the client system:
+1.  Go into the `embersc` directory to set up the client system:
 
     ```bash
-    cd ember
+    cd embersc
     ```
 
 1.  Install everything:
@@ -54,6 +54,14 @@ Ember:
     npm install
     bower install
     ```
+
+1.  Run regression tests
+
+    ```bash
+    ember server
+    ```
+    
+    Then browse [http://localhost:4200/tests](http://localhost:4200/tests) and watch them run.
     
 Rails:
 
@@ -98,7 +106,7 @@ Rails:
     rails s
     ```
     
-    Then browse `http://localhost:3000`.  You should get the standard Rails index page.
+    Then browse [http://localhost:3000](http://localhost:3000).  You should get the standard Rails index page.
     
 Test both together:
 
@@ -108,7 +116,7 @@ Test both together:
     ember server --proxy http://localhost:3000
     ```
     
-1.  Browse `localhost:4200`.  Browse around and notice that you have
+1.  Browse [http://localhost:4200](http://localhost:4200).  Browse around and notice that you have
 
     * Bugs Bunny w/ 2 presentations
     * Wile E. Coyote w/ 1 presenation
@@ -119,4 +127,4 @@ If you get further than we have, we would appreciate a PR from you, thanks!
 #### Troubleshooting
 
 This is currently running using ember-sc version **0.1.2**.
-We try to keep it upgraded periodically to the latest released ember-sc version.
+We try to keep it upgraded periodically to the **latest-released** `ember-cli` version.
